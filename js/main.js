@@ -205,7 +205,9 @@ $(document).ready(function () {
   });
 
 
-
+  $("tr:visible").each(function (index) {
+    $(this).css("background-color", !!(index & 1) ? "rgba(0,0,0,.05)" : "rgba(0,0,0,0)");
+  });
 
   //  Start Google map 
 
@@ -270,83 +272,91 @@ $('.popover-dismiss').popover({
 let precio = "$690,00";
 
 var data = [
-	{
-		"model": "Bone",
-		"price": `${precio}`,
-		"image": "img/Bone.jpg"
-	},
-	{
-		"model": "Girl",
-		"price": `${precio}`,
-		"image": "img/girl.jpg"
-	},
-	{
-		"model": "Galaxy",
-		"price": `${precio}`,
-		"image": "img/galaxy.jpg"
-	},
-	{
-		"model": "Green Bone",
-		"price": `${precio}`,
-		"image": "img/green-bone.jpg"
-	},
-	{
-		"model": "Arrived",
-		"price": `${precio}`,
-		"image": "img/arrived.jpg"
-	},
-	{
-		"model": "Bad Boy",
-		"price": `${precio}`,
-		"image": "img/bad-boy.jpg"
-	},
-	{
-		"model": "Boy",
-		"price": `${precio}`,
-		"image": "img/boy.jpg"
-	},
   {
-		"model": "Flowers",
-		"price": `${precio}`,
-		"image": "img/flowers.jpg"
-	}
+    "model": "Bone",
+    "price": `${precio}`,
+    "image": "img/Bone.jpg",
+    "gender": "Unisex"
+  },
+  {
+    "model": "Girl",
+    "price": `${precio}`,
+    "image": "img/girl.jpg",
+    "gender": "Unisex"
+  },
+  {
+    "model": "Galaxy",
+    "price": `${precio}`,
+    "image": "img/galaxy.jpg",
+    "gender": "Unisex"
+  },
+  {
+    "model": "Green Bone",
+    "price": `${precio}`,
+    "image": "img/green-bone.jpg",
+    "gender": "Unisex"
+  },
+  {
+    "model": "Arrived",
+    "price": `${precio}`,
+    "image": "img/arrived.jpg",
+    "gender": "Unisex"
+  },
+  {
+    "model": "Bad Boy",
+    "price": `${precio}`,
+    "image": "img/bad-boy.jpg",
+    "gender": "Boy"
+  },
+  {
+    "model": "Boy",
+    "price": `${precio}`,
+    "image": "img/boy.jpg",
+    "gender": "Boy"
+  },
+  {
+    "model": "Flowers",
+    "price": `${precio}`,
+    "image": "img/flowers.jpg",
+    "gender": "Girl"
+  }
 ];
 
 var products = "",
+  gender = "",
+  models = "",
 
-	models = "",
-
-  prices="";
+  prices = "";
 
 for (var i = 0; i < data.length; i++) {
-	var 
-		model = data[i].model,
-		gender = data[i].gender,
-		price = data[i].price,
-		rawPrice = price.replace("$",""),
-		rawPrice = parseFloat(rawPrice.replace(",",".")),
-		image = data[i].image;
-	
-	//create product cards
+  var
+    model = data[i].model,
+    gender = data[i].gender,
+    price = data[i].price,
+    rawPrice = price.replace("$", ""),
+    rawPrice = parseFloat(rawPrice.replace(",", ".")),
+    image = data[i].image;
+
+  //create product cards
   products += `<div class="col-lg-3 col-md-6 product" data-model='${model}' data-price='${rawPrice}' data-gender='${gender}'><div class="single-unique-product" >
   <img class="img-fluid" src="${image}" alt="chapita ${model}">
   <div class="desc">
     <h4>${model}</h4>
     <h6>$<span>${rawPrice.toFixed(2)}</span></h6>
-    <a tabindex="0" class="text-uppercase primary-btn btn-compra popover-dismiss" type="button" data-container="body" data-toggle="popover" data-placement="top" data-content="Agregado al carrito!">Comprar</a>
+    <a tabindex="-2" class="text-uppercase primary-btn btn-compra popover-dismiss" type="button" data-container="body" data-trigger="focus" data-toggle="popover" data-placement="top" data-content="Agregado al carrito!">Comprar</a>
   </div>
 </div></div>`;
-  
-	//create dropdown of prices
-	if (prices.indexOf("<option value='" + rawPrice+"'>" + rawPrice + "</option>") == -1) {
-		prices += "<option value='" + rawPrice + "'>" + rawPrice + "</option>";
-	}
-	
-	//create dropdown of models
-	if (models.indexOf("<option value='" + model+"'>" + model + "</option>") == -1) {
-		models += "<option value='" + model + "'>" + model + "</option>";
-	}
-	
+
+  //create dropdown of prices
+  if (prices.indexOf("<option value='" + rawPrice + "'>" + rawPrice + "</option>") == -1) {
+    prices += "<option value='" + rawPrice + "'>" + rawPrice + "</option>";
+  }
+
+  //create dropdown of models
+  if (models.indexOf("<option value='" + model + "'>" + model + "</option>") == -1) {
+    models += "<option value='" + model + "'>" + model + "</option>";
+  }
+
 }
 
 $("#products").html(products);
@@ -355,46 +365,46 @@ $(".filter-price").append(prices);
 var filtersObject = {};
 
 //on filter change
-$(".filter").on("change",function() {
-	var filterName = $(this).data("filter"),
-		filterVal = $(this).val();
-	
-	if (filterVal == "") {
-		delete filtersObject[filterName];
-	} else {
-		filtersObject[filterName] = filterVal;
-	}
-	
-	var filters = "";
-	
-	for (var key in filtersObject) {
-	  	if (filtersObject.hasOwnProperty(key)) {
-			filters += "[data-"+key+"='"+filtersObject[key]+"']";
-	 	}
-	}
-	
-	if (filters == "") {
-		$(".product").show();
-	} else {
-		$(".product").hide();
-		$(".product").hide().filter(filters).show();
-	}
+$(".filter").on("change", function () {
+  var filterName = $(this).data("filter"),
+    filterVal = $(this).val();
+
+  if (filterVal == "") {
+    delete filtersObject[filterName];
+  } else {
+    filtersObject[filterName] = filterVal;
+  }
+
+  var filters = "";
+
+  for (var key in filtersObject) {
+    if (filtersObject.hasOwnProperty(key)) {
+      filters += "[data-" + key + "='" + filtersObject[key] + "']";
+    }
+  }
+
+  if (filters == "") {
+    $(".product").show();
+  } else {
+    $(".product").hide();
+    $(".product").hide().filter(filters).show();
+  }
 });
 
 //on search form submit
-$("#search-form").submit(function(e) {
-	e.preventDefault();
-	var query = $("#search-form input").val().toLowerCase();
+$("#search-form").submit(function (e) {
+  e.preventDefault();
+  var query = $("#search-form input").val().toLowerCase();
 
-	$(".product").hide();
-	$(".product").each(function() {
-		var 
-			model = $(this).data("model").toLowerCase();
+  $(".product").hide();
+  $(".product").each(function () {
+    var
+      model = $(this).data("model").toLowerCase();
 
-		if (model.indexOf(query) > -1) {
-			$(this).show();
-		}
-	});
+    if (model.indexOf(query) > -1) {
+      $(this).show();
+    }
+  });
 });
 
 
@@ -405,27 +415,55 @@ let btnsCompra = document.querySelectorAll('.btn-compra');
 
 let carrito = [];
 let carrito_storage = [];
+let acuProducto = 0;
+let prodEnCart; 
 
 for (let boton of btnsCompra) {
 
   boton.addEventListener("click", agregar_carrito);
 }
 
+
 function agregar_carrito(e) {
 
   let div = e.target.parentNode.parentNode;
   let nombre_producto = div.querySelector("h4").textContent;
-  console.log(nombre_producto);
+
   let img = div.querySelector("img").src;
-  console.log(img);
+
   let precio = div.querySelector("span").textContent;
-  //console.log(precio);
+
   let itemQty = 1;
 
   let total = precio * itemQty;
+  let producto;
+  acuProducto++;
+  prodEnCart = acuProducto;
 
+  if (carrito.some(producto => producto.img === img)) {
+    itemQty++;
+    //Algo que busque el item y le aumente la cantidad
+  } else {
+    producto = {
+      id: acuProducto,
+      nombre: nombre_producto,
+      img: img,
+      precio: parseFloat(precio),
+      cantidad: itemQty,
+      total: total
+    };
+
+    carrito.push(producto);
+    mostrar_carrito(producto);
+    let divCant = document.getElementById('muestraCant');
+    let pCant = document.getElementById('pCantProd');
+
+    divCant.classList.remove('d-none');
+    pCant.innerText = acuProducto;
+  }
+  /*
   let producto = {
-    id: 1,
+    id: acuProducto,
     nombre: nombre_producto,
     img: img,
     precio: parseFloat(precio),
@@ -434,56 +472,89 @@ function agregar_carrito(e) {
   };
 
   carrito.push(producto);
+  */
 
   let producto_JSON = JSON.stringify(producto);
   carrito_storage.push(producto_JSON);
 
-  sessionStorage.setItem("producto", carrito_storage);
-
-  mostrar_carrito(producto);
-
-
+  //localStorage.setItem("carritoTego", carrito_storage);
 }
 
 function mostrar_carrito(producto) {
-
   let fila = document.createElement("tr");
-  fila.classList.add('fila-carrito')
-  fila.innerHTML = `
-                    <th scope="row">${producto.id}</th>
-                    <td><a href="" class="text-danger delete-item"><span class="lnr lnr-trash"></span></a></td>
-                    <td><img src="${producto.img}" class="img-fluid" width="35" alt="product"></td>
-                    <td>${producto.nombre}</td>
-                    <td>
-                        <div class="form-group mb-0">
-                            <input type="number"
-                                class="form-control cart-qty"
-                                name="cartQty" id="cartQty" value="${producto.cantidad}">
-                        </div>
-                    </td>
-                    <td>$<span class="product-value">${producto.precio}</span></td>
-                    <td class="text-right">$ <span class = "product-total">${producto.total}</span></td>`;
+  fila.classList.add('fila-carrito');
 
-  let iframe = document.getElementById('iCartPage');
-  let innerDoc = (iframe.contentDocument)
-    ? iframe.contentDocument
-    : iframe.contentWindow.document;
+  let filaCarrito = `<th scope='row' class="d-none d-sm-table-cell">${producto.id}</th><td><a href='#' class='text-danger delete-item'><span class='lnr lnr-trash'></span></a></td><td><img src='${producto.img}' class='img-fluid' width='35' alt='${producto.nombre}'></td><td class="d-none d-sm-table-cell">${producto.nombre}</td><td><div class='form-group mb-0'><input type='number' class='form-control cart-qty' name='cartQty' id='cartQty' value='${producto.cantidad}'></div></td><td>$<span class='product-value'>${producto.precio}</span></td><td class='text-right'>$ <span class = 'product-total'>${producto.total}</span></td>`;
+  fila.innerHTML = filaCarrito;
 
-  let body_tabla = innerDoc.getElementById("cartContent");
+  let body_tabla = document.getElementById("cartContent");
 
-  //console.log(body_tabla)
   body_tabla.append(fila);
+
+  let space = / /ig;
+  filaClean = filaCarrito.replaceAll(space, "%");
+
+
+  let filaJson = JSON.stringify(filaClean);
+
+  carrito_storage.push(filaJson);
+  localStorage.setItem("compra", (carrito_storage));
+
+
+
 
   calcularTotal();
 
 }
 
-//cambiar cantidad de total
-let cantProd = document.querySelectorAll("input[name=cartQty]");
-for (let input of cantProd) {
-  input.addEventListener("change", cambiar_cantidad_total);
+//Popular carrito
 
+function popular_carrito() {
+
+  let body_tabla = document.getElementById("cartContent");
+  let fila;
+
+  let carrito = JSON.parse(localStorage.getItem("compra"));
+  const carritoClean = carrito ? [carrito] : [];
+  console.log(carrito)
+
+  for (let row of carritoClean) {
+    let quitaBarra = row.replaceAll("%", " ");
+    console.log(quitaBarra);
+    fila = document.createElement("tr");
+    fila.classList.add('fila-carrito');
+    fila.innerHTML = quitaBarra;
+
+  }
+  body_tabla.append(fila);
+
+
+  calcularTotal();
+}
+if (localStorage.getItem('compra')) {
+  //popular_carrito();
+}
+
+
+//cambiar cantidad de total
+let btnCarrito = document.getElementById('carritoPage');
+btnCarrito.addEventListener('click', select_select);
+
+function select_select() {
+  let cantProd = document.querySelectorAll("input[name=cartQty]");
+  for (let input of cantProd) {
+    input.addEventListener("change", cambiar_cantidad_total);
+
+  };
+  let botones_borrar = document.querySelectorAll(".delete-item");
+
+  for (let boton of botones_borrar) {
+
+    boton.addEventListener("click", borrar_producto);
+  };
 };
+
+select_select();
 
 function cambiar_cantidad_total(e) {
   let row = e.target.parentNode.parentNode.parentNode;
@@ -497,7 +568,6 @@ function cambiar_cantidad_total(e) {
   calcularTotal();
 
 };
-
 
 //Total del carrito
 
@@ -532,7 +602,19 @@ for (let boton of botones_borrar) {
 };
 
 function borrar_producto(e) {
+  let divCant = document.getElementById('muestraCant');
+  let pCant = document.getElementById('pCantProd');
+  
+  prodEnCart--;
+  if(prodEnCart<=0){
+    divCant.classList.add('d-none');
+    acuProducto=0;
+  }
+  
+  pCant.innerText = prodEnCart;
+
 
   let row = e.target.parentNode.parentNode.parentNode;
   row.remove();
+  calcularTotal();
 };

@@ -43,7 +43,13 @@
 <body>
 
 	<header id="header" id="home">
-		<a href="cartpage.html" class="text-carrito"><i class="fa fa-shopping-cart"></i> Carrito</a>
+		<div id="iconoCarrito">
+			<div class="muestraCant d-none" id="muestraCant">
+				<p id="pCantProd"></p>
+			</div>
+			<a href="cartpage.html" class="text-carrito" id="carritoPage" data-toggle="modal"
+				data-target="#uniqueCart"><i class="fa fa-shopping-cart"></i> Carrito</a>
+		</div>
 		<div class="container">
 			<div class="row align-items-center justify-content-between d-flex">
 				<div id="logo">
@@ -71,7 +77,7 @@
 
 	<section class="generic-banner relative">
 		<div class="container">
-			<div class="row height align-items-center justify-content-center">
+			<div class="row height-short align-items-center justify-content-center">
 				<div class="col-lg-10">
 					<div class="generic-banner-content">
 						<h2 class="text-white">Tienda Tegopet</h2>
@@ -86,7 +92,161 @@
 	<!-- About Generic Start -->
 	<div class="main-wrapper">
 
+		<!-- Modal Cart -->
+		<section class="unique-feature-area section-gap modal fade bd-example-modal-lg" id="uniqueCart" tabindex="-1"
+			role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h2 class="mb-10 modal-title title" id="cartModalLabel">Tu carrito</h2>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="row modal-body">
+						<div class="container-fluid">
+							<!-- Start col -->
+							<div class="row">
+								<div class="col-lg-10 col-xl-12 col-md-10 col-sm-10 col-xs-10">
+									<div class="card m-b-30">
+										<div class="card-body">
+											<div class="row justify-content-center">
+												<div class="col-lg-10 col-xl-12 col-md-10 col-sm-10 col-xs-10">
+													<div class="cart-container">
+														<div class="cart-head">
+															<div
+																class="table cart-table table-sm col-md-12 col-lg-5 col-xl-6">
+																<table class="table table-products">
+																	<thead>
+																		<tr>
+																			<th class="d-none d-sm-table-cell"
+																				scope="col">#</th>
+																			<th scope="col">Eliminar</th>
+																			<th scope="col">Foto</th>
+																			<th cclass="d-none d-sm-table-cell"
+																				scope="col">Nombre</th>
+																			<th scope="col">Cantidad</th>
+																			<th scope="col">Precio</th>
+																			<th scope="col" class="text-right">Total
+																			</th>
+																		</tr>
+																	</thead>
+																	<tbody class="table table-hover" id="cartContent">
+																		<!-- Aca se insertan desde JS -->
+																		<!-- <th scope='row' class="d-none d-sm-table-cell"></th><td><a href='' class='text-danger delete-item'><span class='lnr lnr-trash'></span></a></td><td><img src='' class='img-fluid' width='35' alt=''></td><td class="d-none d-sm-table-cell"></td><td><div class='form-group mb-0'><input type='number' class='form-control cart-qty' name='cartQty' id='cartQty' value=''></div></td><td>$<span class='product-value'></span></td><td class='text-right'>$ <span class = 'product-total'></span></td> -->
+																	</tbody>
+																</table>
+															</div>
+														</div>
 
+														<div class="row">
+															<div class="col-md-12 order-2 order-lg-1 col-lg-5 col-xl-6">
+																<div class="order-note">
+																	<h3>Datos de envio</h3>
+																	<form action="#">
+																		<div class="mt-10">
+																			<input type="text" name="first_name"
+																				placeholder="Nombre"
+																				onfocus="this.placeholder = ''"
+																				onblur="this.placeholder = 'Nombre'"
+																				required class="single-input">
+																		</div>
+																		<div class="mt-10">
+																			<input type="text" name="last_name"
+																				placeholder="Apellido"
+																				onfocus="this.placeholder = ''"
+																				onblur="this.placeholder = 'Apellido'"
+																				required class="single-input">
+																		</div>
+																		<div class="mt-10">
+																			<input type="email" name="EMAIL"
+																				placeholder="Email"
+																				onfocus="this.placeholder = ''"
+																				onblur="this.placeholder = 'Email'"
+																				required class="single-input">
+																		</div>
+																		<div class="input-group-icon mt-10">
+																			<div class="icon"><i
+																					class="fa fa-thumb-tack"
+																					aria-hidden="true"></i></div>
+																			<input type="text" name="address"
+																				placeholder="Direccion"
+																				onfocus="this.placeholder = ''"
+																				onblur="this.placeholder = 'Direccion'"
+																				required class="single-input">
+																		</div>
+																		<div class="input-group-icon mt-10">
+																			<div class="icon"><i
+																					class="fa fa-thumb-tack"
+																					aria-hidden="true"></i></div>
+																			<input type="text" name="city"
+																				placeholder="Ciudad"
+																				onfocus="this.placeholder = ''"
+																				onblur="this.placeholder = 'Ciudad'"
+																				required class="single-input">
+																		</div>
+																		<div class="mt-10">
+																			<input type="text" name="postal-code"
+																				placeholder="Codigo postal"
+																				onfocus="this.placeholder = ''"
+																				onblur="this.placeholder = 'Codigo Postal'"
+																				required class="single-input">
+																		</div>
+																	</form>
+																</div>
+															</div>
+															<div class="col-md-12 order-1 order-lg-2 col-lg-7 col-xl-6">
+																<div class="order-total table-responsive ">
+																	<table class="table table-borderless text-right">
+																		<tbody>
+																			<tr>
+																				<td>Sub Total :</td>
+																				<td>$ <span
+																						id="cart-subtotal">0.00</span>
+																				</td>
+																			</tr>
+																			<tr>
+																				<td>Envio :</td>
+																				<td>$ <span
+																						id="monto-envio">200.00</span>
+																				</td>
+																			</tr>
+																			<tr>
+																				<td class="f-w-7 font-18">
+																					<h4>Total :</h4>
+																				</td>
+																				<td class="f-w-7 font-18">
+																					<h4>$ <span
+																							id="cart-total">0.00</span>
+																					</h4>
+																				</td>
+																			</tr>
+																		</tbody>
+																	</table>
+																</div>
+															</div>
+														</div>
+													</div>
+
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+							<!-- End col -->
+						</div>
+					</div>
+					<div class=" modal-footer cart-footer text-right">
+						<button type="button" class="btn btn-info my-1"><i class="fa fa-floppy-o"></i> Guardar
+							carrito</button>
+						<a href="page-checkout.html" class="btn btn-success my-1">Pagar
+							<i class="fa fa-arrow-right"></i> </a>
+					</div>
+
+					<!-- End row -->
+		</section>
 		<!-- Start unique-feature Area -->
 		<section class="unique-feature-area section-gap" id="unique">
 			<div class="container">

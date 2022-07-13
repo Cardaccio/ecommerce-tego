@@ -334,3 +334,21 @@ body.mobile-nav-active #mobile-nav {
 body.mobile-nav-active #mobile-nav-toggle {
   color: #fff;
 }
+
+.muestraCant{
+  background-color: rgb(197, 0, 0);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  z-index: 10;
+}
+
+.muestraCant p{
+    color: #fff;
+    font-weight: 700;
+    text-align: center;
+
+  }
