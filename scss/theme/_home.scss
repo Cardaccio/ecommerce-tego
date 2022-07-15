@@ -1,4 +1,43 @@
+.btnWhatsapp{
+	position: fixed;
+	bottom: 10px;
+	right: 10px;
+	background-color: #13a700;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 3px 6px 14px 0px rgba(0,0,0,0.27);
+-webkit-box-shadow: 3px 6px 14px 0px rgba(0,0,0,0.27);
+-moz-box-shadow: 3px 6px 14px 0px rgba(0,0,0,0.27);
+z-index: 20;
+	a{
+		color: #fff;
+		font-size: 1.8rem;
+	}
+}
 
+.backTop{
+	position: fixed;
+	bottom: 55px;
+	right: 10px;
+	width: 40px !important;
+	height: 40px;
+	border-radius: 50%;
+	background-color: rgb(74,231,250);
+	border: none;
+	box-shadow: 3px 6px 14px 0px rgba(0,0,0,0.27);
+	-webkit-box-shadow: 3px 6px 14px 0px rgba(0,0,0,0.27);
+	-moz-box-shadow: 3px 6px 14px 0px rgba(0,0,0,0.27);
+	z-index: 20;
+	display: none;
+	i{
+		color: #fff;
+		font-size: 1rem;
+	}
+}
 .section-gap {
 	padding: 120px 0;
 }

@@ -1,5 +1,5 @@
 //Busqueda de productos
-let precio = "$690,00";
+let precio = "$990,00";
 
 var data = [
   {

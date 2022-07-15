@@ -242,5 +242,6 @@ function vaciar_carrito(){
 }
 
 function ir_a_pagar(){
-
+    localStorage.clear();
+    sessionStorage.clear();
 };
