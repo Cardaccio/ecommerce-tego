@@ -37,6 +37,7 @@
 	<link rel="stylesheet" href="css/nice-select.css">
 	<link rel="stylesheet" href="css/animate.min.css">
 	<link rel="stylesheet" href="css/owl.carousel.css">
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.22/dist/sweetalert2.all.min.js"></script>
 	<link rel="stylesheet" href="css/main.css">
 </head>
 
@@ -63,10 +64,10 @@
 						<li><a href="index.html#unique">Productos</a></li>
 						<li><a href="index.html#review">Opiniones</a></li>
 						<li><a href="index.html#faq">FAQ</a></li>
-						<li class="menu-has-children menu-active"><a href="">Tienda</a>
+						<li class="menu-has-children menu-active"><a href="store.html">Tienda</a>
 							<ul>
-								<li><a href="generic.html">Medallas</a></li>
-								<li><a href="elements.html">Compras</a></li>
+								<li><a href="store.html">Medallas</a></li>
+								<!-- <li><a href="elements.html">Compras</a></li> -->
 							</ul>
 						</li>
 					</ul>
@@ -239,9 +240,8 @@
 						</div>
 					</div>
 					<div class=" modal-footer cart-footer text-right">
-						<button type="button" class="btn btn-info my-1"><i class="fa fa-floppy-o"></i> Guardar
-							carrito</button>
-						<a href="page-checkout.html" class="btn btn-success my-1">Pagar
+						<button type="button" class="btn btn-info my-1" id="saveCart"><i class="fa fa-cart-arrow-down"></i> Vaciar Carrito</button>
+						<a href="page-checkout.html" class="btn btn-success my-1" id="payCart">Pagar
 							<i class="fa fa-arrow-right"></i> </a>
 					</div>
 
@@ -296,7 +296,7 @@
 		<!-- Start Generic Area -->
 		<section class="about-generic-area section-gap">
 			<div class="container border-top-generic">
-				<h3 class="about-title mb-30">Elaboration about Generic Page</h3>
+				<h3 class="about-title mb-30">Tenes un Petshop, Veterinaria o queres revender nuestras medallas?</h3>
 				<div class="row">
 					<div class="col-md-12">
 						<div class="img-text">
@@ -397,6 +397,8 @@
 		<script src="js/jquery.nice-select.min.js"></script>
 		<script src="js/parallax.min.js"></script>
 		<script src="js/mail-script.js"></script>
+		<script src="js/products.js"></script>
+		<script src="js/cart.js"></script>
 		<script src="js/main.js"></script>
 </body>
 

@@ -1106,8 +1106,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .cart-table {
   table-layout: fixed;
+  max-width: 100%;
 }
 
+@media (max-width: 800px) {
+  .cart-table {
+    overflow: scroll;
+  }
+}
 .table-products {
   max-width: 100%;
 }
@@ -2087,6 +2093,12 @@ body.mobile-nav-active #mobile-nav-toggle {
   text-align: center;
 }
 
+@media (max-width: 800px) {
+  #header .muestraCant {
+    top: 10px;
+    right: 60px;
+  }
+}
 .section-gap {
   padding: 120px 0;
 }

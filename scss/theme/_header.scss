@@ -352,3 +352,11 @@ body.mobile-nav-active #mobile-nav-toggle {
     text-align: center;
 
   }
+
+  @media (max-width: 800px) {
+    #header .muestraCant {
+      top: 10px;
+      right: 60px;
+    }
+  
+  }

@@ -341,9 +341,15 @@ h1, h2, h3, h4, h5, h6 {
 
 .cart-table{
 	table-layout: fixed;
-
+	max-width: 100%;
+	// overflow: scroll;
 }
-
+@media (max-width: 800px) {
+    .cart-table {
+      overflow: scroll;
+  
+  }
+}
 .table-products{
 	max-width: 100%;
 }
