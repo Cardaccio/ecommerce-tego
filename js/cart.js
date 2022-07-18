@@ -24,9 +24,10 @@ class prodCarrito {
 
 function agregar_carrito(e) {
 
-    let carritoStorage = JSON.parse(sessionStorage.getItem('carritoTego'))
+    let carritoStorage = JSON.parse(localStorage.getItem('carritoTego'))
     if (carritoStorage) {
         carrito = carritoStorage
+        acuProducto =  carrito.length;
     }
 
     let div = e.target.parentNode.parentNode;
@@ -49,7 +50,7 @@ function agregar_carrito(e) {
         mostrar_carrito(producto);
 
         //Circulo rojo de productos en el carrito.
-       redCircle();
+        red_circle();
 
     } else {
         carrito[index].cantidad++;
@@ -58,18 +59,18 @@ function agregar_carrito(e) {
     }
 
     //Guardo en Local storage
-    sessionStorage.setItem("carritoTego", JSON.stringify(carrito));
+    localStorage.setItem("carritoTego", JSON.stringify(carrito));
 }
 
 //Circulo rojo de productos en el carrito.
-function redCircle() {
+function red_circle() {
 
     let divCant = document.getElementById('muestraCant');
     let pCant = document.getElementById('pCantProd');
 
     divCant.classList.remove('d-none');
     pCant.innerText = acuProducto;
-    
+
     if (carrito.length <= 0) {
         divCant.classList.add('d-none');
         acuProducto = 0;
@@ -91,14 +92,14 @@ function mostrar_carrito(producto) {
 
 }
 
-//Popular carrito desde sessionStorage
-if (sessionStorage.getItem('carritoTego')) {
+//Popular carrito desde localStorage
+if (localStorage.getItem('carritoTego')) {
     popular_carrito();
 }
 
 function popular_carrito() {
 
-    let carritoStorage = JSON.parse(sessionStorage.getItem('carritoTego'))
+    let carritoStorage = JSON.parse(localStorage.getItem('carritoTego'))
     if (carritoStorage) {
         carrito = carritoStorage
         for (let item of carrito) {
@@ -107,7 +108,7 @@ function popular_carrito() {
         }
     }
 
-    redCircle();
+    red_circle();
     calcularTotal();
 }
 
@@ -146,7 +147,7 @@ function cambiar_cantidad_total(e) {
     valorTotal.innerText = `${(valorProd * cantProducto).toFixed(2)}`;
 
     //camibar cantidad en storage
-    let carritoStorage = JSON.parse(sessionStorage.getItem('carritoTego'))
+    let carritoStorage = JSON.parse(localStorage.getItem('carritoTego'))
 
     let name = row.querySelector("img").alt;
     let index = carritoStorage.findIndex(producto => producto.nombre == name)
@@ -154,7 +155,7 @@ function cambiar_cantidad_total(e) {
     carritoStorage[index].total = valorProd * cantProducto;
 
     //Guardo en Local storage
-    sessionStorage.setItem("carritoTego", JSON.stringify(carrito));
+    localStorage.setItem("carritoTego", JSON.stringify(carritoStorage));
     calcularTotal();
 
 };
@@ -192,10 +193,17 @@ for (let boton of botones_borrar) {
 };
 
 function borrar_producto(e) {
-
+    
     let row = e.target.parentNode.parentNode.parentNode;
     acuProducto--;
-    redCircle();
+    //borrar del carrito
+    let name = row.querySelector("img").alt;
+    let index = carrito.findIndex(producto => producto.nombre == name)
+    carrito.splice([index],1);
+
+    localStorage.setItem("carritoTego", JSON.stringify(carrito));
+
+    red_circle();
     row.remove();
     calcularTotal();
 };
@@ -209,8 +217,8 @@ let btnPagar = document.getElementById('payCart');
 btnGuardar.addEventListener("click", guardar_carrito);
 btnPagar.addEventListener('click', ir_a_pagar);
 
-function guardar_carrito(carrito){
-    (carrito) => localStorage.setItem("carritoTego", JSON.stringify(carrito))
+function guardar_carrito(carrito) {
+    
     Swal.fire({
         title: 'Estas segurx?',
         text: "Guardaremos tu compra hasta tu proxima visita.",
@@ -222,26 +230,69 @@ function guardar_carrito(carrito){
         confirmButtonText: 'OK, guardar.',
         cancelButtonText: 'Cancelar',
 
-      }).then((result) => {
+    }).then((result) => {
         if (result.isConfirmed) {
-          Swal.fire(
-            'Carrito guardado!',
-            'Esperamos verte de nuevo por aqui.',
-            'success'
-          )
-          vaciar_carrito();
+            Swal.fire(
+                'Carrito guardado!',
+                'Esperamos verte de nuevo por aqui.',
+                'success'
+            )
+           
+            vaciar_carrito();
         }
-      })
+    })
 }
 
-function vaciar_carrito(){
-
+function vaciar_carrito() {
+    
     $("#cartContent tr").remove();
     let divCant = document.getElementById('muestraCant');
     divCant.classList.add('d-none');
+    calcularTotal();
+    acuProducto = 0;
 }
 
-function ir_a_pagar(){
+function ir_a_pagar() { 
     localStorage.clear();
-    sessionStorage.clear();
+};
+
+//envio a domicilio
+
+let switchBtn = document.getElementById("confirm-switch");
+let divEnvio = document.getElementById("datosEnvio");
+let retiro = document.getElementById("retiro");
+let envio = document.getElementById("monto-envio");
+let selectEnvio = document.getElementById("provSelect");
+
+$("#confirm-switch").on('change', function () {
+    if ($(this).is(':checked')) {
+        divEnvio.classList.remove("d-none");
+        retiro.classList.add("d-none");
+        monto_envio();
+
+    }
+    else {
+        divEnvio.classList.add("d-none");
+        retiro.classList.remove("d-none");
+        envio.innerText = "0";
+
+    }
+    calcularTotal();
+});
+
+function monto_envio() {
+
+    if (selectEnvio.options[selectEnvio.selectedIndex].value == 1) {
+        envio.innerText = "300";
+
+    } else if (selectEnvio.options[selectEnvio.selectedIndex].value == 2) {
+        envio.innerText = "450";
+
+    } else {
+        envio.innerText = 600;
+
+    }
+
+    calcularTotal();
+
 };

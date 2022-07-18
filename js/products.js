@@ -1,5 +1,5 @@
 //Busqueda de productos
-let precio = "$990,00";
+let precio = "$1200,00";
 
 var data = [
   {
@@ -69,7 +69,7 @@ for (var i = 0; i < data.length; i++) {
 
   //create product cards
   products += `<div class="col-lg-3 col-md-6 product" data-model='${model}' data-price='${rawPrice}' data-gender='${gender}'><div class="single-unique-product" >
-  <img class="img-fluid" src="${image}" alt="chapita ${model}">
+  <div class="img-prod-div"><img class="img-fluid img-top" src="${image}" alt="chapita ${model}"><img class="img-fluid img-back" src="img/back.jpg" alt="chapita ${model} QR"></div>
   <div class="desc">
     <h4>${model}</h4>
     <h6>$<span>${rawPrice.toFixed(2)}</span></h6>

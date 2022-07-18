@@ -143,20 +143,27 @@
 														<div class="row">
 															<div class="col-md-12 order-2 order-lg-1 col-lg-5 col-xl-6">
 																<div class="order-note">
-																	<h3>Datos de envio</h3>
+																	<h3>Tus Datos</h3>
 																	<form action="#">
-																		<div class="mt-10">
-																			<input type="text" name="first_name"
-																				placeholder="Nombre"
-																				onfocus="this.placeholder = ''"
-																				onblur="this.placeholder = 'Nombre'"
-																				required class="single-input">
+																		<div
+																			class="switch-wrap d-flex justify-content-between">
+																			<p>Envío a Domicilio</p>
+																			<div class="confirm-switch">
+																				<input type="checkbox"
+																					id="confirm-switch" checked>
+																				<label for="confirm-switch"></label>
+																			</div>
+																		</div>
+																		<div class="mt-10 d-none" id="retiro">
+																			<p>Podrás retirar tu pedido de lun a vie de
+																				10 a 20hs por Palermo. Av. Scalabrinir
+																				Ortiz 2129 2° B.</p>
 																		</div>
 																		<div class="mt-10">
-																			<input type="text" name="last_name"
-																				placeholder="Apellido"
+																			<input type="text" name="first_name"
+																				placeholder="Nombre y Apellido"
 																				onfocus="this.placeholder = ''"
-																				onblur="this.placeholder = 'Apellido'"
+																				onblur="this.placeholder = 'Nombre y Apellido'"
 																				required class="single-input">
 																		</div>
 																		<div class="mt-10">
@@ -166,32 +173,93 @@
 																				onblur="this.placeholder = 'Email'"
 																				required class="single-input">
 																		</div>
-																		<div class="input-group-icon mt-10">
-																			<div class="icon"><i
-																					class="fa fa-thumb-tack"
-																					aria-hidden="true"></i></div>
-																			<input type="text" name="address"
-																				placeholder="Direccion"
-																				onfocus="this.placeholder = ''"
-																				onblur="this.placeholder = 'Direccion'"
-																				required class="single-input">
-																		</div>
-																		<div class="input-group-icon mt-10">
-																			<div class="icon"><i
-																					class="fa fa-thumb-tack"
-																					aria-hidden="true"></i></div>
-																			<input type="text" name="city"
-																				placeholder="Ciudad"
-																				onfocus="this.placeholder = ''"
-																				onblur="this.placeholder = 'Ciudad'"
-																				required class="single-input">
-																		</div>
-																		<div class="mt-10">
-																			<input type="text" name="postal-code"
-																				placeholder="Codigo postal"
-																				onfocus="this.placeholder = ''"
-																				onblur="this.placeholder = 'Codigo Postal'"
-																				required class="single-input">
+																		<div id="datosEnvio" class="">
+																			<div class="input-group-icon mt-10">
+																				<div class="icon"><i
+																						class="fa fa-thumb-tack"
+																						aria-hidden="true"></i></div>
+																				<input type="text" name="address"
+																					placeholder="Direccion"
+																					onfocus="this.placeholder = ''"
+																					onblur="this.placeholder = 'Direccion'"
+																					required class="single-input">
+																			</div>
+																			<div class="input-group-icon mt-10">
+																				<div class="icon"><i class="fa fa-plane"
+																						aria-hidden="true"></i></div>
+																				<div class="form-select"
+																					id="default-select">
+																					<select id="provSelect"
+																						onchange="monto_envio()">
+																						<option value="0">Provincia
+																						</option>
+																						<option value="1">CABA</option>
+																						<option value="2">GBA</option>
+																						<option value="3">Buenos Aires
+																							(Resto)</option>
+																						<option value="4">Catamarca
+																						</option>
+																						<option value="5">Chaco</option>
+																						<option value="6">Chubut
+																						</option>
+																						<option value="7">Córdoba
+																						</option>
+																						<option value="8">Corrientes
+																						</option>
+																						<option value="9">Entre Rios
+																						</option>
+																						<option value="10">Formosa
+																						</option>
+																						<option value="11">Jujuy
+																						</option>
+																						<option value="12">La Pampa
+																						</option>
+																						<option value="13">La Rioja
+																						</option>
+																						<option value="14">Mendoza
+																						</option>
+																						<option value="15">Misiones
+																						</option>
+																						<option value="16">Neuquén
+																						</option>
+																						<option value="17">Rio Negro
+																						</option>
+																						<option value="18">Salta
+																						</option>
+																						<option value="19">San Juan
+																						</option>
+																						<option value="20">San Luis
+																						</option>
+																						<option value="21">Santa Cruz
+																						</option>
+																						<option value="22">Santa Fe
+																						</option>
+																						<option value="23">Santiago del
+																							Estero</option>
+																						<option value="24">Tierra del
+																							Fuego</option>
+																						<option value="25">Tucumán
+																						</option>
+																					</select>
+																				</div>
+																			</div>
+																			<div class="input-group-icon mt-10">
+																				<div class="icon"><i
+																						class="fa fa-thumb-tack"
+																						aria-hidden="true"></i></div>
+																				<input type="text" name="city"
+																					placeholder="Ciudad"
+																					onfocus="this.placeholder = ''"
+																					onblur="this.placeholder = 'Ciudad'"
+																					required class="single-input">
+																			</div>
+																			<div class="mt-10">
+																				<input type="text" name="postal-code"
+																					placeholder="Codigo postal"
+																					onfocus="this.placeholder = ''"
+																					onblur="this.placeholder = 'Codigo Postal'"
+																					required class="single-input">
+																			</div>
 																		</div>
 																	</form>
 																</div>
@@ -208,8 +276,7 @@
 																			</tr>
 																			<tr>
 																				<td>Envio :</td>
-																				<td>$ <span
-																						id="monto-envio">200.00</span>
+																				<td>$ <span id="monto-envio">0.00</span>
 																				</td>
 																			</tr>
 																			<tr>

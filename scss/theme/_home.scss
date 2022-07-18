@@ -689,3 +689,15 @@ z-index: 20;
 	}
 }
 //----------- End Generic Page -------------//
+//produtos
+
+.img-prod-div{
+	display: flex;
+	overflow: hidden;
+}
+.img-top:hover{
+	display: none;
+	opacity: 0;
+}
+
+
