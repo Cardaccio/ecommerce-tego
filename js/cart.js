@@ -253,7 +253,28 @@ function vaciar_carrito() {
 }
 
 function ir_a_pagar() { 
-    localStorage.clear();
+    Swal.fire({
+        title: 'Aun no está hablitado',
+        text: "Pero podés hacer tu pedido por Whatsapp",
+        icon: 'warning',
+        imageUrl: '../img/video-bg.png',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ir a Whatsapp',
+        cancelButtonText: 'Cancelar',
+
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire(
+                'Allá vamos!',
+                'Esperamos verte de nuevo por aqui.',
+                'success'
+            )
+           
+            window.open("https://wa.me/5491136262633");
+        }
+    })
 };
 
 //envio a domicilio

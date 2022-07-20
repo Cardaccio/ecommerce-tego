@@ -2340,8 +2340,6 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .video-right {
-  background: url(../img/video-bg.png) no-repeat center;
-  background-size: cover;
   height: 350px;
 }
 .video-right .overlay-bg {
@@ -2726,16 +2724,6 @@ h6 {
 }
 .switch-wrap p {
   margin: 0;
-}
-
-.img-prod-div {
-  display: flex;
-  overflow: hidden;
-}
-
-.img-top:hover {
-  display: none;
-  opacity: 0;
 }
 
 /*# sourceMappingURL=main.css.map */
