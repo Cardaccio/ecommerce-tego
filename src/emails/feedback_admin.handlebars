@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Feedback recibido</title>
+  </head>
+  <body>
+    <h1>
+      Feedback de cliente
+    </h1>
+    {{> feedback_info }}
+    {{#if order}}
+      <h2>
+        Orden
+      </h2>
+      {{> order_info }}
+    {{/if}}
+  </body>
+</html>

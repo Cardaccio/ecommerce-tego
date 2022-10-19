@@ -1,0 +1,48 @@
+<h2>
+  Datos personales:
+</h2>
+<ul>
+  <li>
+    <b>Nombre:</b> {{ order.name }}
+  </li>
+  <li>
+    <b>Correo electrónico:</b> {{ order.email }}
+  </li>
+  <li>
+    <b>Teléfono:</b> {{ order.phone }}
+  </li>
+  <li>
+    <b>Documento:</b> {{ order.docNumber }} ({{ order.docType }})
+  </li>
+</ul>
+<h2>
+  Datos de envío:
+</h2>
+<ul>
+  <li>
+    <b>Departamento:</b> {{ order.department }}
+  </li>
+  <li>
+    <b>Ciudad:</b> {{ order.city }}
+  </li>
+  <li>
+    <b>Dirección:</b> {{ order.address }}
+  </li>
+</ul>
+<h2>
+  Datos de la orden:
+</h2>
+<ul>
+  <li>
+    <b>Medallas:</b> {{ order.medal }}
+  </li>
+  <li>
+    <b>Cantidad:</b> {{ order.quantity }}
+  </li>
+  <li>
+    <b>Total:</b> ${{ order.transactionAmount }}
+  </li>
+  <li>
+    <b>ID de pago de Mercado Pago:</b> {{ order.mercadopagoId }}
+  </li>
+</ul>

@@ -2,12 +2,41 @@
 <html lang="es-es">
 
 <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <!-- Mobile Specific Meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon-->
     <link rel="shortcut icon" href="img/tego_petcare.ico" type="image/x-icon">
     <!-- Author Meta -->
     <meta name="author" content="juangomez">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LVEW31MWHV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-LVEW31MWHV');
+    </script>
+    <!-- Meta Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '529792258841540');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=529792258841540&ev=PageView&noscript=1" /></noscript>
+    <!-- End Meta Pixel Code -->
     <!-- Meta Description -->
     <meta name="description"
         content="Encontrá todos los artículos para tu mascota que necesitas. Medallas inteligentes, collares y muchos mas. Amamos los animales!">
@@ -19,8 +48,7 @@
     <meta property='og:type' content="Tienda On-line">
     <meta property='og:title' content="Tienda Tego - Petcare">
     <meta property='og:url' content="https://www.tegopet.com.ar/">
-    <meta property='og:img'
-        content="https://i0.wp.com/www.tegopet.com.ar/wp-content/uploads/2022/04/logotego-blanco.png?w=1844&ssl=1">
+    <meta property='og:img' content="https://www.tegopet.com.ar/img/isologo-tegopet.png">
     <meta property='og:description'
         content="Encontrá todos los artículos para tu mascota que necesitas. Medallas inteligentes, collares y muchos mas. Amamos los animales!">
     <!-- Site Title -->
@@ -42,11 +70,11 @@
 </head>
 
 <body>
-	<div class="btnWhatsapp">
-		<a href="https://wa.me/5491136262633"><i class="fa fa-whatsapp"></i></a>
-	</div>
+    <div class="btnWhatsapp">
+        <a href="https://wa.me/5491136262633"><i class="fa fa-whatsapp"></i></a>
+    </div>
     <header id="header" id="home">
-        <a href="store.html"><span class="lnr lnr-cart carrito"></span></a>
+        <!-- <a href="store.html"><span class="lnr lnr-cart carrito"></span></a> -->
         <div class="container">
             <div class="row align-items-center justify-content-between d-flex">
                 <div id="logo">
@@ -54,13 +82,13 @@
                 </div>
                 <nav id="nav-menu-container">
                     <ul class="nav-menu">
-                        <li class="menu-active"><a href="index.html">Inicio</a></li>
+                        <li><a href="index.html">Inicio</a></li>
                         <li><a href="index.html#about">Funcionamiento</a></li>
                         <li><a href="index.html#service">Porque</a></li>
                         <li><a href="index.html#unique">Productos</a></li>
                         <li><a href="index.html#review">Opiniones</a></li>
                         <li><a href="index.html#faq">FAQ</a></li>
-                        <li class="menu-has-children"><a href="store.html">Tienda</a>
+                        <li class="menu-has-children"><a href="store.html">Catálogo</a>
                             <ul>
                                 <li><a href="store.html">Medallas</a></li>
                                 <!-- <li><a href="elements.html">Compras</a></li> -->
@@ -93,8 +121,8 @@
 
         <!-- Start Generic Area -->
         <button type="button" class="success circle btn-floating backTop" id="btn-back-to-top"><i
-			class="fa fa-arrow-up"></i>
-	</button>
+                class="fa fa-arrow-up"></i>
+        </button>
         <section class="about-generic-area section-gap">
             <div class="container border-top-generic">
                 <h3 class="about-title mb-30">Bases y Condiciones</h3>
@@ -385,87 +413,92 @@
         </section>
         <!-- End Generic Start -->
 
-	<!-- start footer Area -->
-	<footer class="footer-area section-gap">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-5 col-md-6 col-sm-6">
-					<div class="single-footer-widget">
-						<h6>Tegopet</h6>
-						<p>
-							Amantes de los animales.
-						</p>
-						<a href="bases.html">Bases y Condiciones</a>
-						<p class="footer-text">
-							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-							Copyright &copy;
-							<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados |
-							Hecho con <i class="fa fa-heart-o" aria-hidden="true"></i> por <a href="#"
-								target="_blank">Tegopet</a>
-							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-						</p>
-					</div>
-				</div>
-				<div class="col-lg-5  col-md-6 col-sm-6">
-					<div class="single-footer-widget">
-						<h6>Newsletter</h6>
-						<p>Mantenete al día con las ofertas y promociones.</p>
-						<div class="" id="mc_embed_signup">
-							<form target="_blank" novalidate="true"
-								action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
-								method="get" class="form-inline">
-								<input class="form-control" name="EMAIL" placeholder="Enter Email"
-									onfocus="this.placeholder = ''" onblur="this.placeholder = 'Ingresa tu Email '"
-									required="" type="email">
-								<button class="click-btn btn btn-default"><i class="fa fa-long-arrow-right"
-										aria-hidden="true"></i></button>
-								<div style="position: absolute; left: -5000px;">
-									<input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value=""
-										type="text">
-								</div>
+        <!-- start footer Area -->
+        <footer class="footer-area section-gap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 col-md-6 col-sm-6">
+                        <div class="single-footer-widget">
+                            <h6>Tegopet</h6>
+                            <p>
+                                Amantes de los animales.
+                            </p>
+                            <a href="bases.html">Bases y Condiciones</a>
+                            <p class="footer-text">
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                Copyright &copy;
+                                <script>document.write(new Date().getFullYear());</script> Todos los derechos reservados
+                                |
+                                Hecho con <i class="fa fa-heart-o" aria-hidden="true"></i> por <a href="#"
+                                    target="_blank">Tegopet</a>
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-5  col-md-6 col-sm-6">
+                        <div class="single-footer-widget">
+                            <h6>Newsletter</h6>
+                            <p>Mantenete al día con las ofertas y promociones.</p>
+                            <div class="" id="mc_embed_signup">
+                                <form target="_blank" novalidate="true"
+                                    action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+                                    method="get" class="form-inline">
+                                    <input class="form-control" name="EMAIL" placeholder="Enter Email"
+                                        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Ingresa tu Email '"
+                                        required="" type="email">
+                                    <button class="click-btn btn btn-default"><i class="fa fa-long-arrow-right"
+                                            aria-hidden="true"></i></button>
+                                    <div style="position: absolute; left: -5000px;">
+                                        <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value=""
+                                            type="text">
+                                    </div>
 
-								<div class="info"></div>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-2 col-md-6 col-sm-6 social-widget">
-					<div class="single-footer-widget">
-						<h6>Seguinos!</h6>
-						<div class="footer-social d-flex align-items-center">
-							<a href="https://www.facebook.com/tego.pet" target="_blank"><i class="fa fa-facebook"></i></a>
-							<a href="https://www.instagram.com/tego.pet" target="_blank"><i class="fa fa-instagram"></i></a>
-							<a href="https://www.tiktok.com/@tego.pet" target="_blank"><img src="img/elements/tiktok-16.png" alt="logo tiktok" style="width: 12px;"></a>
-							<a href="https://www.youtube.com/channel/UCKYjApVBloIj6k2K88i7zrQ" target="_blank"><i class="fa fa-youtube"></i></a>
-							<a href="https://wa.me/5491136262633" target="_blank"><i class="fa fa-whatsapp"></i></a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
-	<!-- End footer Area -->
+                                    <div class="info"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6 col-sm-6 social-widget">
+                        <div class="single-footer-widget">
+                            <h6>Seguinos!</h6>
+                            <div class="footer-social d-flex align-items-center">
+                                <a href="https://www.facebook.com/tego.pet" target="_blank"><i
+                                        class="fa fa-facebook"></i></a>
+                                <a href="https://www.instagram.com/tego.pet" target="_blank"><i
+                                        class="fa fa-instagram"></i></a>
+                                <a href="https://www.tiktok.com/@tego.pet" target="_blank"><img
+                                        src="img/elements/tiktok-16.png" alt="logo tiktok" style="width: 12px;"></a>
+                                <a href="https://www.youtube.com/channel/UCKYjApVBloIj6k2K88i7zrQ" target="_blank"><i
+                                        class="fa fa-youtube"></i></a>
+                                <a href="https://wa.me/5491136262633" target="_blank"><i class="fa fa-whatsapp"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- End footer Area -->
 
-	<script src="js/vendor/jquery-2.2.4.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-		crossorigin="anonymous"></script>
-	<script src="js/vendor/bootstrap.min.js"></script>
-	<script type="text/javascript"
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
-	<script src="js/easing.min.js"></script>
-	<script src="js/hoverIntent.js"></script>
-	<script src="js/superfish.min.js"></script>
-	<script src="js/jquery.ajaxchimp.min.js"></script>
-	<script src="js/jquery.magnific-popup.min.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/jquery.sticky.js"></script>
-	<script src="js/jquery.nice-select.min.js"></script>
-	<script src="js/parallax.min.js"></script>
-	<script src="js/mail-script.js"></script>
-    <script src="js/cart.js"></script>
-	<script src="js/products.js"></script>
-	<script src="js/main.js"></script>
+        <script src="js/vendor/jquery-2.2.4.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="js/vendor/bootstrap.min.js"></script>
+        <script type="text/javascript"
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+        <script src="js/easing.min.js"></script>
+        <script src="js/hoverIntent.js"></script>
+        <script src="js/superfish.min.js"></script>
+        <script src="js/jquery.ajaxchimp.min.js"></script>
+        <script src="js/jquery.magnific-popup.min.js"></script>
+        <script src="js/owl.carousel.min.js"></script>
+        <script src="js/jquery.sticky.js"></script>
+        <script src="js/jquery.nice-select.min.js"></script>
+        <script src="js/parallax.min.js"></script>
+        <script src="js/mail-script.js"></script>
+        <script src="js/cart.js"></script>
+        <script src="js/products.js"></script>
+        <script src="js/main.js"></script>
 </body>
 
 </html>

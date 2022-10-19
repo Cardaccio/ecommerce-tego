@@ -1,5 +1,5 @@
 //Busqueda de productos
-let precio = "$1200,00";
+let precio = "$1490,00";
 
 var data = [
   {
@@ -258,9 +258,9 @@ var data = [
 
 var products = "",
   genders = "",
-  models = "",
+  models = "";
 
-  prices = "";
+  // prices = "";
 
 for (var i = 0; i < data.length; i++) {
   var
@@ -273,18 +273,20 @@ for (var i = 0; i < data.length; i++) {
 
   //create product cards
   products += `<div class="col-lg-3 col-md-6 product" data-model='${model}' data-price='${rawPrice}' data-gender='${gender}'><div class="single-unique-product" >
-  <a href="${image}" class="with-caption image-link" title="${model}"><img class="img-fluid img-top" src="${image}" alt="chapita ${model}"></a>
+  <a href="${image}" class="with-caption image-link prod-img" title="${model}"><img class="img-fluid img-top" src="${image}" alt="chapita ${model}"></a>
   <div class="desc">
     <h4>${model}</h4>
-    <h6>$<span>${rawPrice.toFixed(2)}</span></h6>
-    <a tabindex="-2" class="text-uppercase primary-btn btn-compra popover-dismiss" type="button" data-container="body" data-trigger="focus" data-toggle="popover" data-placement="top" data-content="Agregado al carrito!">Comprar</a>
   </div>
 </div></div>`;
 
+{/* <h6>$<span>${rawPrice.toFixed(2)}</span></h6> */}
+{/* <a tabindex="-2" class="text-uppercase primary-btn btn-compra popover-dismiss" type="button" data-container="body" data-trigger="focus" data-toggle="popover" data-placement="top" data-content="Agregado al carrito!">Comprar</a> */}
+
+
   //create dropdown of prices
-  if (prices.indexOf("<option value='" + rawPrice + "'>" + rawPrice + "</option>") == -1) {
-    prices += "<option value='" + rawPrice + "'>" + rawPrice + "</option>";
-  }
+  // if (prices.indexOf("<option value='" + rawPrice + "'>" + rawPrice + "</option>") == -1) {
+  //   prices += "<option value='" + rawPrice + "'>" + rawPrice + "</option>";
+  // }
 
   //create dropdown of models
   if (models.indexOf("<option value='" + model + "'>" + model + "</option>") == -1) {
@@ -299,7 +301,7 @@ for (var i = 0; i < data.length; i++) {
 
 $("#products").html(products);
 $(".filter-model").append(models);
-$(".filter-price").append(prices);
+// $(".filter-price").append(prices);
 $(".filter-gender").append(genders);
 var filtersObject = {};
 
@@ -349,7 +351,7 @@ $("#search-form").submit(function (e) {
 
 //Zoom a la imagen
 
-$('a').magnificPopup({
+$('.prod-img').magnificPopup({
   type: 'image',
   closeBtnInside: false,
   closeOnContentClick: false,

@@ -2,12 +2,41 @@
 <html lang="es-es">
 
 <head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 	<!-- Mobile Specific Meta -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<!-- Favicon-->
 	<link rel="shortcut icon" href="img/tego_petcare.ico" type="image/x-icon">
 	<!-- Author Meta -->
 	<meta name="author" content="juangomez">
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-LVEW31MWHV"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-LVEW31MWHV');
+	</script>
+	<!-- Meta Pixel Code -->
+	<script>
+		!function (f, b, e, v, n, t, s) {
+			if (f.fbq) return; n = f.fbq = function () {
+				n.callMethod ?
+				n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+			};
+			if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+			n.queue = []; t = b.createElement(e); t.async = !0;
+			t.src = v; s = b.getElementsByTagName(e)[0];
+			s.parentNode.insertBefore(t, s)
+		}(window, document, 'script',
+			'https://connect.facebook.net/en_US/fbevents.js');
+		fbq('init', '529792258841540');
+		fbq('track', 'PageView');
+	</script>
+	<noscript><img height="1" width="1" style="display:none"
+			src="https://www.facebook.com/tr?id=529792258841540&ev=PageView&noscript=1" /></noscript>
+	<!-- End Meta Pixel Code -->
 	<!-- Meta Description -->
 	<meta name="description"
 		content="Encontrá todos los artículos para tu mascota que necesitas. Medallas inteligentes, collares y muchos mas. Amamos los animales!">
@@ -19,8 +48,7 @@
 	<meta property='og:type' content="Tienda On-line">
 	<meta property='og:title' content="Tienda Tego - Petcare">
 	<meta property='og:url' content="https://www.tegopet.com.ar/">
-	<meta property='og:img'
-		content="https://i0.wp.com/www.tegopet.com.ar/wp-content/uploads/2022/04/logotego-blanco.png?w=1844&ssl=1">
+	<meta property='og:img' content="https://www.tegopet.com.ar/img/isologo-tegopet.png">
 	<meta property='og:description'
 		content="Encontrá todos los artículos para tu mascota que necesitas. Medallas inteligentes, collares y muchos mas. Amamos los animales!">
 	<!-- Site Title -->
@@ -46,13 +74,13 @@
 		<a href="https://wa.me/5491136262633"><i class="fa fa-whatsapp"></i></a>
 	</div>
 	<header id="header" id="home">
-		<div id="iconoCarrito">
+		<!-- <div id="iconoCarrito">
 			<div class="muestraCant d-none" id="muestraCant">
 				<p id="pCantProd"></p>
 			</div>
 			<a href="cartpage.html" class="text-carrito" id="carritoPage" data-toggle="modal"
 				data-target="#uniqueCart"><i class="fa fa-shopping-cart"></i> Carrito</a>
-		</div>
+		</div> -->
 		<div class="container">
 			<div class="row align-items-center justify-content-between d-flex">
 				<div id="logo">
@@ -66,7 +94,7 @@
 						<li><a href="index.html#unique">Productos</a></li>
 						<li><a href="index.html#review">Opiniones</a></li>
 						<li><a href="index.html#faq">FAQ</a></li>
-						<li class="menu-has-children menu-active"><a href="store.html">Tienda</a>
+						<li class="menu-has-children menu-active"><a href="store.html">Catálogo</a>
 							<ul>
 								<li><a href="store.html">Medallas</a></li>
 								<!-- <li><a href="elements.html">Compras</a></li> -->
@@ -83,8 +111,9 @@
 			<div class="row height-short align-items-center justify-content-center">
 				<div class="col-lg-10">
 					<div class="generic-banner-content">
-						<h2 class="text-white">Tienda Tegopet</h2>
-						<p class="text-white">Todos los productos que necesitás<br> para tus hijos de cuatro patas.</p>
+						<h2 class="text-white">Catálogo Tegopet</h2>
+						<p class="text-white">Conocé todos los productos que tenemos<br> para tus hijos de cuatro patas.</p>
+						<p class="text-white">Conseguílos en las mejores veterinarias y petshops del país</p>
 					</div>
 				</div>
 			</div>
@@ -319,8 +348,8 @@
 		</section>
 		<!-- Start unique-feature Area -->
 		<button type="button" class="success circle btn-floating backTop" id="btn-back-to-top"><i
-			class="fa fa-arrow-up"></i>
-	</button>
+				class="fa fa-arrow-up"></i>
+		</button>
 		<section class="unique-feature-area section-gap" id="unique">
 			<div class="container">
 				<div class="row d-flex justify-content-center">
@@ -379,7 +408,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="img-text">
-							<img src="img/foto vidriera.jpg" alt="" class="img-fluid float-left mr-20 mb-20">
+							<img src="img/foto-vidriera.avif" alt="Petshop Tegopet" class="img-fluid float-left mr-20 mb-20">
 							<h4>Podés escribirnos a <a
 									href="mailto:mayoristas@tegopet.com.ar">mayoristas@tegopet.com.ar</a> y contarnos
 								sobre tu situación, dónde está tu local y te asignaremos un Ejecutivo de cuentas para
@@ -509,7 +538,6 @@
 			</div>
 		</footer>
 		<!-- End footer Area -->
-
 		<script src="js/vendor/jquery-2.2.4.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
 			integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
